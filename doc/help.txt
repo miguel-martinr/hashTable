@@ -1,0 +1,35 @@
+Experimento Rendimiento Tabla Hash
+
+Modos de uso:
+
+1. Interactivo
+
+     bin/experimento
+
+
+2. Directo
+
+     bin/experimento [cel] [cla] [fDisp] [fExp] [nPrueb] [fCarga]
+
+   cel: Nº de celdas de la tabla
+   cla: Nº de claves de cada celda
+   fDisp: Id función de dispersión
+   fExp: Id función de exploración
+   nPrueb: Nº de pruebas
+   fCarga: factor de carga de la tabla (entre 0 y 1)
+
+ Funciones de dispersión
+    1. Módulo
+    2. Suma
+    3. Pseudoaleatoria
+
+ Funciones de exploración
+    1. Lineal
+    2. Cuadrática
+    3. Dispersión doble
+    4. Redispersión
+
+
+Author: Miguel Martín
+Github: https://github.com/miguel-martinr
+e-mail: alu0101209777@ull.edu.es
