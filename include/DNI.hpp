@@ -7,40 +7,25 @@ class DNI {
  public:
 
    DNI(void);
+   DNI(unsigned long num);
    ~DNI(void) {}
 
+   static unsigned long cmpCount_;
 
-   int getNum(void) const { return num_; }
-   void setNum(int num) { num_ = num; }
+
+   unsigned long getNum(void) const { return num_; }
+   void setNum(unsigned long num) { num_ = num; }
 
    void operator=(const DNI& A);
    bool operator==(const DNI& A);
    bool operator<(const DNI& A);
    bool operator>(const DNI& A);
 
-   operator unsigned long(void) { return num_; }
+   operator unsigned long() const {
+     return getNum();
+   }
+
 
  private:
-   int num_;
+   unsigned long num_;
 };
-
-DNI::DNI(void) {
-    srand(time(NULL));
-    num_ = rand() % 100000000;
-}
-
-void DNI::operator=(const DNI& A) {
-  setNum(A.getNum());
-}
-
-bool DNI::operator==(const DNI& A) {
-  return (getNum() == A.getNum());
-}
-
-bool DNI::operator<(const DNI& A) {
-  return (getNum() < A.getNum());
-}
-
-bool DNI::operator>(const DNI& A) {
-  return (getNum() > A.getNum());
-}

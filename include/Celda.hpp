@@ -13,6 +13,7 @@ class Celda {
 
 
    bool estaLlena(void);
+   bool estaVacia(void);
    int nClaves(void) { return vClaves_.size(); }
 
  private:
@@ -28,7 +29,7 @@ Celda<Clave>::Celda(int nClaves, int emptyVal){ //emptyVal es el valor que conti
 
 template <class Clave>
 bool Celda<Clave>::Buscar(Clave x) {
-  for (int i = 0; i < nClaves(); i++)
+  for (int i = 0; i < occu_; i++)
     if (vClaves_[i] == x)
       return true;
 
@@ -46,7 +47,10 @@ bool Celda<Clave>::Insertar(Clave x) {
 
 template <class Clave>
 bool Celda<Clave>::estaLlena(void) {
-  if (occu_ == nClaves())
-    return true;
-   return false;
+  return occu_ == nClaves();
+}
+
+template <class Clave>
+bool Celda<Clave>::estaVacia(void) {
+  return occu_ == 0;
 }
