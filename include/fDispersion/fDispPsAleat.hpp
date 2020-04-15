@@ -34,7 +34,6 @@ class fDispPsAleat : public fDispersionBase<Clave> {
 
    int operator()(const Clave& x) {
      int seed = static_cast<int>(x);
-//     cout << "\nSEED: " << seed << endl;
      srand(seed);
      return rand() % size_;
    }

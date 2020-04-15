@@ -65,7 +65,6 @@ void Estadistica::update(double data) {
 }
 
 ostream& Estadistica::print(ostream& os, string rot) {
-  //os << setw(40) << right << "Mínimo       Medio      Máximo" << endl;
   os << setw(15) << left << rot << setw(10) << left << min_
                                 << setw(10) << left << avg_
                                 << setw(10) << left << max_;
