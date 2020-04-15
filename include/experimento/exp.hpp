@@ -1,3 +1,24 @@
+/**********************************************************************
+* Project           : Hash table implementation
+*
+* Class             : Experimento
+*
+* Author            : Miguel Alejandro Martín Reyes (miguel-martinr)
+* e-mail            : alu0101209777@ull.edu.es
+* github            : https://github.com/miguel-martinr
+*
+* Date created      : 20200415
+*
+* References  :
+*    https://campusvirtual.ull.es/1920/pluginfile.php/209080/mod_resource/content/10/AEDA-pract04.pdf
+*
+*
+* Revision History  :
+*
+* Date        Author              Ref    Revision
+* 20200415    miguel-martinr      1      ...
+*
+**********************************************************************/
 #pragma once
 #include "Estadistica.hpp"
 #include "../DNI.hpp"
@@ -53,9 +74,10 @@ int exp::run(ostream& os) {
 
 int exp::insert(void) {
   insrt_.reset();
-  for (int i = testRepo_->size()/2, j = 0; j < nPruebas_; i++, j++) {
+  for (int i = 0; i < nPruebas_; i++) {
     DNI::cmpCount_ = 0;
-    hashTable_->Buscar((*testRepo_)[i]);
+    int mid = testRepo_->size()/2;
+    hashTable_->Buscar((*testRepo_)[(i % mid) + mid]); //Posiciones en el rango [mid, size()-1]
     insrt_.update(DNI::cmpCount_);
   }
   return 0;
@@ -66,7 +88,7 @@ int exp::search(void) {
   srch_.reset();
   for (int i = 0; i < nPruebas_; i++) {
     DNI::cmpCount_ = 0;
-    hashTable_->Buscar((*testRepo_)[i]);
+    hashTable_->Buscar((*testRepo_)[i % (testRepo_->size()/2)+1]);
     srch_.update(DNI::cmpCount_);
   }
   return 0;
@@ -74,13 +96,12 @@ int exp::search(void) {
 
 exp::exp(float loadF, int nPruebas, Tabla<DNI>* hashTable) {  nPruebas_ = nPruebas;
   assert((loadF >= 0 && loadF <= 1) && "Factor de carga no permitido!");
+  nPruebas_ = nPruebas;
   loadF_ = loadF;
   hashTable_ = hashTable;
   resizeRepo();
   initRepo();
   loadTab();
-  assert(nPruebas <= testRepo_->size()/2);
-  nPruebas_ = nPruebas;
 }
 
 int exp::loadTab(void) {
