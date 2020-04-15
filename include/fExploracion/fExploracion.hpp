@@ -1,3 +1,4 @@
+
 #pragma once
 #include "fExploracionBase.hpp"
 #include "fExpCuad.hpp"
