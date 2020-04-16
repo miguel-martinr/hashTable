@@ -56,8 +56,8 @@ int main(int argc, char* argv[]) {
     claves = stoi(argv[2]);
     fDisp = stoi(argv[3]);
     fExp = stoi(argv[4]);
-    nprueb = stoi(argv[5]);
-    carga = stof(argv[6]);
+    carga = stof(argv[5]);
+    nprueb = stoi(argv[6]);  
   } else {
     cout << "Estudio de rendimiento de Tabla Hash \n\n";
     cout << "Introduzca los parámetros de la tabla:\n";
