@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
          << "       3. Dispersión doble\n"
          << "       4. Redispersión\n"; cin >> fExp;
 
-    cout << "\n\n Introduzca los parámetros del fExperimento:\n";
+    cout << "\n\n Introduzca los parámetros del Experimento:\n";
     cout << "  - Número de pruebas: "; cin >> nprueb;
     cout << "  - Factor de carga: "; cin >> carga;
     cout << endl << endl;
