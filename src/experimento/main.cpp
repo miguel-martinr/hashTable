@@ -51,14 +51,14 @@ int main(int argc, char* argv[]) {
       return help("doc/help.txt");
   }
 
-  if (argc == 7) {
+  if (argc == 7) { //Inicialización parámetros en llamada
     celdas = stoi(argv[1]);
     claves = stoi(argv[2]);
     fDisp = stoi(argv[3]);
     fExp = stoi(argv[4]);
     carga = stof(argv[5]);
-    nprueb = stoi(argv[6]);  
-  } else {
+    nprueb = stoi(argv[6]);
+  } else { //Inicialización parámetros en ejecución
     cout << "Estudio de rendimiento de Tabla Hash \n\n";
     cout << "Introduzca los parámetros de la tabla:\n";
     cout << "  - Celdas: "; cin >> celdas;
@@ -66,7 +66,8 @@ int main(int argc, char* argv[]) {
     cout << "  - Seleccione la función de Dispersión: \n";
     cout << "       1. Módulo\n"
          << "       2. Suma\n"
-         << "       3. Pseudoaleatoria\n"; cin >> fDisp;
+         << "       3. Pseudoaleatoria\n"
+         << "       4. Suma2\n"; cin >> fDisp;
     cout << "  - Seleccione la función de Exploración: \n";
     cout << "       1. Lineal\n"
          << "       2. Cuadrática\n"

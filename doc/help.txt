@@ -9,7 +9,7 @@ Modos de uso:
 
 2. Directo
 
-     bin/experimento [cel] [cla] [fDisp] [fExp] [fCarga] [nPrueb] 
+     bin/experimento [cel] [cla] [fDisp] [fExp] [fCarga] [nPrueb]
 
    cel: Nº de celdas de la tabla
    cla: Nº de claves de cada celda
@@ -22,6 +22,7 @@ Modos de uso:
     1. Módulo
     2. Suma
     3. Pseudoaleatoria
+    4. Suma2
 
  Funciones de exploración
     1. Lineal

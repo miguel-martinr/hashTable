@@ -32,7 +32,7 @@ class Tabla {
 
  public:
    Tabla(int nCeldas, int nClaves, int dispId, int expId);
-   ~Tabla(void){}
+   ~Tabla(void){ delete fDisp, delete fExp;}
 
    bool Buscar(Clave x);
    bool Insertar(Clave x);
@@ -66,6 +66,10 @@ Tabla<Clave>::Tabla(int nCeldas, int nClaves, int dispId, int expId) {
 template <class Clave>
 bool Tabla<Clave>::Buscar(Clave x) {
   int position = (*fDisp)(x);
+
+  //Comprobación rápida modif funciona
+  //cout << "DNI:" << x << endl << " - " << position << " - " << get_nCeldas() << endl;
+
   bool found = vCelda_[position]->Buscar(x);
   int i = 0;
   while (!found && (i < get_nCeldas())) {
@@ -114,6 +118,9 @@ int Tabla<Clave>::setDisp(int dispId) {
       break;
     case 3:
       fDisp = new fDispPsAleat<Clave>(get_nCeldas());
+      break;
+    case 4: // Modificación
+      fDisp = new FDSuma2<Clave>(get_nCeldas());
       break;
 
     default:
