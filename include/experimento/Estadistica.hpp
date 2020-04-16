@@ -30,7 +30,7 @@ using namespace std;
 
 class Estadistica {
  public:
-  Estadistica(void): min_(0), avg_(0), max_(0), its_(0),
+  Estadistica(void): min_(1.79769e+308), avg_(0), max_(0), its_(0),
                      cmps_(0) {}
   ~Estadistica(void) {}
 
@@ -48,7 +48,7 @@ class Estadistica {
 };
 
 void Estadistica::reset(void) {
-  min_ = 0;
+  min_ = 1.79769e+308;
   avg_ = 0;
   max_ = 0;
   its_ = 0;
@@ -60,7 +60,7 @@ void Estadistica::update(double data) {
   avg_ = cmps_ / its_;
   if (data > max_)
     max_ = data;
-  if (min_ == 0 || data < min_)
+  if (data < min_)
     min_ = data;
 }
 
